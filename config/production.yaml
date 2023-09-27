@@ -4,14 +4,13 @@ providers:
     class: octodns.provider.yaml.YamlProvider
     directory: ./
     enforce_order: False
-  dnsimple:
-    class: octodns.provider.dnsimple.DnsimpleProvider
-    token: env/DNSIMPLE_API_KEY
-    account: env/DNSIMPLE_ACCOUNT_NUMBER
+  cloudflare:
+    class: octodns_cloudflare.CloudflareProvider
+    token: env/CLOUDFLARE_TOKEN
 
 zones:
   hack.af.:
     sources:
       - config
     targets:
-      - dnsimple
+      - cloudflare

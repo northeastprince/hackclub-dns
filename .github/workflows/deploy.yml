@@ -14,9 +14,9 @@ jobs:
         with:
           python-version: '3'
       - name: Install OctoDNS
-        run: pip install 'octodns==0.9.10'
+        run: pip install 'octodns==0.9.14 octodns-cloudflare==0.0.2'
       - name: Sync w/ production DNS providers
         run: ./bin/sync
         env:
-          DNSIMPLE_ACCOUNT_NUMBER: ${{ secrets.DNSIMPLE_ACCOUNT_NUMBER }}
-          DNSIMPLE_API_KEY: ${{ secrets.DNSIMPLE_API_KEY }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
